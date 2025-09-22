@@ -84,7 +84,6 @@ public class MyLL <Y>{
         if(this.size()>1)
         {
             head=head.getNext();
-            //oldhead=null;
             size--;
             return oldhead.getData();
         }

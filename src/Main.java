@@ -8,10 +8,11 @@ public class Main {
         myList.add(3,2);
         myList.add(4,1);
         myList.add(5,9);
-        myList.addFirst(1);
+        myList.removeLast();
+        //myList.addFirst(1);
         //myList.removeLast();
         myList.replaceAll(2,2);
-        System.out.println(myList.removeFirstOccurrence(9));
+        System.out.println(myList.removeFirstOccurrence(1));
         myList.display();
 
     }
