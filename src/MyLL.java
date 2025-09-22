@@ -124,9 +124,6 @@ public class MyLL <Y>{
     public boolean remove(Y data) {
         // TODO: Implement this method - replace object with generic
         // Hint: You need the node BEFORE the one you're removing!
-        //most normal case, with more than three nodes
-        //one
-        //two
         if(!this.contains(data))
             return false;
         for(int i=0;i<this.size();i++)
@@ -168,7 +165,6 @@ public class MyLL <Y>{
                     removeLast();
                     return true;
                 }
-                //find=null;
                 this.getNode(i-1).setNext(this.getNode(i+1));
                 size--;
                 return true;
@@ -195,7 +191,7 @@ public class MyLL <Y>{
                     removeFirst();
                     return true;
                 }
-                //find=null;
+
                 this.getNode(i-1).setNext(this.getNode(i+1));
                 size--;
                 return true;
