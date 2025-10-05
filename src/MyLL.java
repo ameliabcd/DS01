@@ -12,10 +12,12 @@ public class MyLL <Y>{
         Node<Y> newNode=new Node<>(data);
         //LL is empty
         //LL has data in it
+        size++;
         if(head==null)
         {
             //create a new node object;
             head=newNode;
+            tail=newNode;
         }
         else
         {
@@ -24,7 +26,6 @@ public class MyLL <Y>{
             head=newNode;
             tail=this.getNode(this.size()-1);
         }
-        size++;
     }
 
     public void addLast(Y data) {
@@ -57,6 +58,7 @@ public class MyLL <Y>{
         if(index==0)
         {
             this.addFirst(data);
+//            tail=this.getNode(size()-1);
             return true;
         }
         if(index==this.size())
@@ -70,6 +72,8 @@ public class MyLL <Y>{
 
         beforeNode.setNext(newNode);
         newNode.setNext(afterNode);
+        size++;
+        tail=this.getNode(size()-1);
         return true;
     }
 
@@ -221,7 +225,9 @@ public class MyLL <Y>{
         // TODO: Implement this method - replace object with generic
         // Hint: Use a loop counter to traverse the right number of steps
         Node<Y> find = head;
-        if(index>this.size()-1)
+        if(head==null)
+            return null;
+        if(index>this.size()-1 || index<0)
         {
             return null;
         }
@@ -254,6 +260,10 @@ public class MyLL <Y>{
     public boolean contains(Y data) {
         // TODO: Implement this method - replace object with generic
         // Hint: Traverse the entire list checking each node's data
+        if(head==null)
+        {
+            return false;
+        }
         Node<Y> current=head;
         if(head.getData().equals(data))
             return true;
@@ -271,6 +281,8 @@ public class MyLL <Y>{
         // Hint: Keep track of current index while traversing
         // Return -1 if not found
         Node<Y> current=head;
+        if(head==null)
+            return -1;
         if(head.getData().equals(data))
             return 0;
         for(int i=0;i<this.size();i++)
@@ -309,6 +321,8 @@ public class MyLL <Y>{
         // TODO: Implement this method - replace object with generic
         // Hint: Traverse and replace all instances of old value with new
         Node<Y> current=head;
+        if(head==null)
+            return;
         if(head.getData().equals(oldValue))
             head.setData(newValue);
         for(int i=0;i<this.size();i++)
